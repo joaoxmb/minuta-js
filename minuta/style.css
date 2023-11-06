@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  background: rgb(61, 61, 61);
+  font-family: Roboto, sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+b {
+  font-weight: bold;
+}
+
+@media print {
+  body {
+     -webkit-print-color-adjust: exact;
+  }
+  .header{
+    display: none !important;
+  }
+  .view-area{
+    overflow: hidden !important;
+  }
+}
+
+
+/* -------------------- */
+/*        MINUTA        */
+/* -------------------- */
+
+.minuta {
+  background: rgb(255, 255, 255);
+  width: 730px;
+  min-height: 1014px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.minuta .bottom {
+  padding: 80px 0 0 0;
+  margin: 0 65px 65px 65px;
+  /* border-bottom: 3px solid #000; */
+}
+
+.minuta .header-container {
+  padding: 80px 65px 0px 65px;
+}
+
+.minuta .header-title {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.minuta .header-title img {
+  width: 30px;
+}
+
+.minuta .header-title h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.minuta .header-title h4 {
+  margin: 5px 0 0 0;
+  font-weight: 600;
+}
+
+.minuta .header-itens h5 {
+  font-weight: 600;
+  line-height: 15px;
+}
+
+.minuta .header-itens h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 7px 0;
+}
+
+.minuta .header-itens #user-info {
+  line-height: 17px;
+}
+
+.minuta .header-itens {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.minuta .header-itens div:first-child {
+  width: 65%;
+}
+
+.minuta .header-itens .user-info {
+  line-height: 18px;
+}
+
+.minuta .minutaBody-container {
+  padding: 0 65px;
+}
+
+.minuta .table-container {
+  padding: 20px 65px 65px 65px;
+}
+
+.minuta #obs {
+  position: absolute;
+  text-align: left;
+  padding: 30px 0 0 0;
+  display: grid;
+  width: 330px;
+  word-break: break-all;
+}
+
+.minuta #obs b {
+  font-size: 21px;
+  margin: 5px 0;
+}
+
+table {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.table-title {
+  background: #000;
+}
+
+table thead th {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+table tbody,
+table thead {
+  border: 1px solid #000;
+}
+
+table tbody td:first-child {
+  vertical-align: middle;
+}
+
+table tbody td {
+  border: 0.5px solid #000;
+}
+
+th,
+td {
+  padding: 7px 7px;
+  min-height: 40px;
+  line-height: 18px;
+}
+
+table .rborder {
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 0.5px solid black
+}
+
+table .lborder {
+  border-left: 1px solid black;
+  border-right: 0.5px solid black;
+  border-bottom: 1px solid black;
+}
+
+table .cobranca-item td {
+  padding: 6px 0;
+}
+
+
+/* -------------------- */
+/*       CONTAINER      */
+/* -------------------- */
+.header {
+  width: 100%;
+  height: 54px;
+  background: #f2f1f6;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+.header .-back {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 10px;
+  color: #007aff;
+}
+
+.header .-title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+}
+
+.-title p {
+  font-size: 15px;
+  color: #949398;
+}
+
+.header .-buttons {
+  position: absolute;
+  right: 20px;
+  display: flex;
+}
+
+.-buttons>div:not(:first-child) {
+  margin: 0 0 0 10px;
+}
+
+.-buttons img,
+.header img {
+  width: 25px;
+  height: 25px;
+}
+
+.view-area{
+  width: 100vw;
+  height: calc(100vh - 54px);
+  overflow: auto;
+  padding: 54px 0 0 0;
+}

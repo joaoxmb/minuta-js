@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador</title>
+
+  <link rel="stylesheet" href="src/reset.css">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+  
+  <script src="src/jquery-3.6.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.4.0/moment.min.js"></script>
+  <script src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+
+  <script src="DATA.js"></script>
+  <script src="TABELA.js"></script>
+  <script src="USER.js"></script>
+  <script src="apps/diaria.js"></script>
+  <script src="apps/minuta.js"></script>
+  <script src="apps/calculadora.js"></script>
+  <script src="apps/cobranca.js"></script>
+
+
+  <div id="aba-inicio" class="container">
+      <div class="padding">
+
+        <div class="ct-user">
+          <div class="--user-padding">
+            <h1 id="user_nome"></h1>
+            <p class="user-info">
+              <span id="user_cnpj"></span>
+            </p>
+          </div>
+          <div>
+            <img src="/images/plusIcon.svg" alt="Abrir nova aba em branco." onclick="abrirNovaAba();">
+          </div>
+        </div>
+        
+        <br>
+        <br>
+
+        <div class="ct-inputs">
+          <div class="input">
+            <input type="text" oninput="minuta.input.texto(this, 'job')" id="job" style="color: #000;" placeholder="Job"/>
+          </div>
+          <div class="input">
+            <input type="text" oninput="minuta.input.texto(this, 'produtora')" id="produtora" placeholder="Produtora"/>
+          </div>
+          <div class="input">
+            <input type="text" oninput="minuta.input.texto(this, 'solicitante')" id="solicitante" placeholder="Solicitante"/>
+          </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div class="ct-nome">Tipo de minuta</div>
+        <ul id="tipo">
+          <i id="nav-background"></i>
+          <i id="nav_indicator"></i>
+              <li onclick="minuta.input.tipo(this, 'tabela')" tipo="tabela">Tabela</li>
+              <li onclick="minuta.input.tipo(this, 'corrida')" tipo="corrida">Corrida</li>
+              <li onclick="minuta.input.tipo(this, 'pacote')" tipo="pacote">Pacote</li>
+        </ul>
+
+        <br>
+
+        <!-- <div class="ct-nome">configuracao</div> -->
+        <div class="ct-inputs tipo-inputs">
+          <div class="input">
+            <label>Valor por hora</label> 
+            <input type="dinheiro" inputmode="numeric" oninput="minuta.input.valor(this, 'valorHora');" id="valorhora"/>
+          </div>
+          <div class="input" style="justify-content: space-between;">
+            <label>Tabela</label>
+            <select id="tabela" oninput="minuta.input.valor(this, 'tabela');"></select>
+          </div>
+          <div class="input">
+            <label>Mínimo de hora</label> 
+            <input type="numero" inputmode="numeric" oninput="minuta.input.valor(this, 'minimoDeHoras');" id="minhora"/>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="ct-nome">Diárias</div>
+        <div id="ct_diarias" class="ct-lista">
+          <div class="conteudo"></div>
+          <div>
+            <div id="btn_adicionar-diaria" onclick="diaria.criar();">
+              Adicionar diaria
+            </div>
+          </div>
+        </div>
+
+        <p class="ct-descricao" id="ct_resultados"></p>
+
+        <br>
+
+        <div class="ct-nome">Observação</div>
+        <div class="ct-inputs">
+          <div class="input">
+            <textarea id="observacao" oninput="minuta.input.texto(this, 'observacao');">teste</textarea>
+          </div>
+        </div>
+      
+        <br>
+
+        <div class="button" onclick="abrirMinuta()" cor="azul">
+          <span>Gerar imagem da minuta</span>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+  </div>
+
+  <div style="display: none;" id="aba-diaria" class="container">
+    <div class="ct-cabecalho">
+      <div onclick="diaria.fechar();">Cancelar</div>
+      <h4 class="nome-page">Diaria</h4>
+      <div onclick="diaria.salvar();">Salvar</div>
+    </div>
+
+    <div class="padding">
+
+      <div class="ct-inputs">
+        <div class="input">
+          <input type="text" id="ocorrencia" style="color: #000;" oninput="diaria.input.ocorrencia(this);" placeholder="Ocorrência"/>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="ct-inputs">
+        <div class="input">
+          <label>Início</label>
+          <input type="datetime-local" id="inicio" oninput="diaria.input.inicio(this);" />
+        </div>
+        <div class="input" style="justify-content: space-between;">
+          <label>Término</label>
+          <select id="termino" oninput="diaria.input.termino(this);"></select>
+        </div>
+        <div class="input">
+          <label>Valor</label>
+          <input type="dinheiro" id="valor" onkeyup="diaria.input.valor(this);"/>
+        </div>
+      </div>
+
+      <br>
+      <div class="ct-nome">Cobrança</div>
+      <div class="ct-cobranca" id="cobranca">
+        <!-- <div class="item">
+          <div class="ct-inputs -input-flex">
+            <div class="input">
+              <input type="text" placeholder="Motivo">
+            </div>
+            <div class="input">
+              <input type="dinheiro" placeholder="R$ 0,00">
+            </div>
+          </div>
+        </div> -->
+      </div>
+      <p class="ct-descricao">
+        Para adicionar outra ou mais cobranças <a onclick="cobranca.adicionarCobranca();" cor="azul">clique aqui! </a> <br> Cobranças em branco não serão considerados no resultado final.
+      </p>
+
+      <br>
+
+      <div id="apagarDiaria" onclick="diaria.apagar();" class="button" cor="vermelho">
+        Apagar diaria
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

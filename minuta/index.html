@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../src/reset.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  
+  <script src="../src/jquery-3.6.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js"></script>
+  <script src="../src/html2canvas.min.js"></script>
+
+  <script src="../TABELA.js"></script>
+  <script src="../USER.js"></script>
+  <script src="../apps/calculadora.js"></script>
+
+  <div class="header">
+    <div class="-back" onclick="window.close()">
+      <img src="./images/back.svg" alt="">
+      <span>Voltar</span>
+    </div>
+    <div class="-title">
+      <h4 id="ct-title"></h4>
+      <p id="ct-subtitle"></p>
+    </div>
+    <div class="-buttons">
+      <div>
+        <a id="download">
+          <img src="./images/download.svg" alt="">
+        </a>
+      </div>
+      <div onclick="compartilhar()">
+        <img src="./images/share.svg" alt="">
+      </div>
+    </div>
+  </div>  
+
+  <div class="view-area">
+    <div class="minuta">
+      <div class="top">
+        <div class="header-container">
+  
+          <div class="header-title">
+            <div>
+              <h1>FECHAMENTO</h1>
+              <h4 id="fechamento-data">29 DE SETEMBRO DE 2022</h4>
+            </div>
+            <!-- <div>
+              <img src="./logo.svg" alt="logo">
+            </div> -->
+          </div>
+    
+          <div class="header-itens">
+            <div>
+              <h5>DE:</h5>
+              <h2 id="user-name"></h2>
+              <p id="user-info">
+              </p>
+            </div>
+    
+          </div>
+  
+        </div>
+    
+        <div class="minutaBody-container">
+            <p id="minuta-descriminacao"></p>
+        </div>
+  
+        <div class="table-container">
+          <table id="table_por_hora">
+            <thead>
+              <tr class="table-title">
+                <th>Data</th>
+                <th>Ocorrência</th>
+                <th>Período</th>
+                <th>Horas</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+    
+            <tbody></tbody>
+    
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="lborder">Cobrança</td>
+                <td id="cobranca-total" class="rborder">R$ 180</td>
+              </tr>
+              <tr>
+                <td id="obs"></td>
+                <td colspan="2"></td>
+                <td class="lborder">Horas</td>
+                <td id="horas-total" class="rborder">10</td>
+              </tr>
+              <tr>
+                <td colspan="3"></td>
+                <td class="lborder"><b>Total</b></td>
+                <td id="valor-total" class="rborder">R$ 180</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+  
+          <table id="table_pacote">
+            <thead>
+              <tr class="table-title">
+                <th width="30%">Data</th>
+                <th colspan="3">Ocorrência</th>
+                <th width="20%">Total</th>
+              </tr>
+            </thead>
+    
+            <tbody></tbody>
+    
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="lborder">Cobrança</td>
+                <td id="cobranca-total" class="rborder">R$ 180</td>
+              </tr>
+              <tr>
+                <td id="obs"></td>
+                <td colspan="2"></td>
+                <td class="lborder">Diarias</td>
+                <td id="diarias-total" class="rborder">10</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td width="20%" class="lborder"><b>Total</b></td>
+                <td id="valor-total" class="rborder">R$ 180</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+  
+      <div class="bottom">
+  
+      </div>
+    </div>
+  </div>
+
+  <script src="share.js"></script>
+  <script src="table.js"></script>
+
+
+</body>
+</html>
